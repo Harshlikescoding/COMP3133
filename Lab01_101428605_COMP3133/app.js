@@ -1,17 +1,14 @@
 const fs = require('fs');
 const csv = require('csv-parser');
 
-// File paths
 const inputFilePath = './input_countries.csv';
 const canadaFilePath = './canada.txt';
 const usaFilePath = './usa.txt';
 
-// Delete existing files if they exist
 try {
     if (fs.existsSync(canadaFilePath)) fs.unlinkSync(canadaFilePath);
     if (fs.existsSync(usaFilePath)) fs.unlinkSync(usaFilePath);
 
-    // Add header rows to the files
     fs.writeFileSync(canadaFilePath, 'country,year,population\n');
     fs.writeFileSync(usaFilePath, 'country,year,population\n');
 } catch (error) {
@@ -19,7 +16,6 @@ try {
     process.exit(1);
 }
 
-// Read and process the CSV file
 let canadaCount = 0;
 let usaCount = 0;
 
